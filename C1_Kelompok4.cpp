@@ -60,20 +60,20 @@ string menu_disorting [5] = {"Ascending Berdasarkan Jumlah halaman", "Descending
 
 
 // Variabel Akun Pengguna //
-string user;       // Memasukan username pada proses login
-string pass;       // Memasukan password pada proses login
-string nama;       // Variabel untuk menyimpan data nama sementara
-string kata_sandi; // Variabel untuk menyimpan data kata sandi sementara
-string noHp;       // Variabel untuk menyimpan data nomor hp sementara
-string gmail;      // Variabel untuk menyimpan data gmail sementara
+string user;                        // Memasukan username pada proses login
+string pass;                        // Memasukan password pada proses login
+string nama;                        // Variabel untuk menyimpan data nama sementara
+string kata_sandi;                  // Variabel untuk menyimpan data kata sandi sementara
+string noHp;                        // Variabel untuk menyimpan data nomor hp sementara
+string gmail;                       // Variabel untuk menyimpan data gmail sementara
 
 
 // Struct akun pengguna //
 struct akun_pengguna {
-    string username; // Memasukan username pada proses registrasi
-    string password; // Memasukan password pada proses registrasi
-    string nomor_hp; // variabel nomor hp pembeli
-    string gmail;    // variabel gmail pembeli
+    string username;                // Memasukan username pada proses registrasi
+    string password;                // Memasukan password pada proses registrasi
+    string nomor_hp;                // variabel nomor hp pembeli
+    string gmail;                   // variabel gmail pembeli
 };
 
 
@@ -85,41 +85,41 @@ struct node_histori {
     node_histori *next;             // Alamat node selanjutnya
 };
 
-int jum_user = 0;                       // Jumlah user histori
-node_histori * front = nullptr;         // Node depan
-node_histori * rear = nullptr;          // Node belakang
+int jum_user = 0;                   // Jumlah user histori
+node_histori * front = nullptr;     // Node depan
+node_histori * rear = nullptr;      // Node belakang
 
 // Struct data e-book //
 struct data_Ebook {
-    string judul_Ebook;     // variabel judul Ebook
-    string nama_penulis;    // variabel nama penulis
-    int jmlhalaman_Ebook;   // variabel jumlah halaman Ebook
-    string deskripsi_Ebook; // variabel yang berisi deskripsi Ebook
-    int harga;              // variabel jumlah halaman Ebook            
+    string judul_Ebook;             // variabel judul Ebook
+    string nama_penulis;            // variabel nama penulis
+    int jmlhalaman_Ebook;           // variabel jumlah halaman Ebook
+    string deskripsi_Ebook;         // variabel yang berisi deskripsi Ebook
+    int harga;                      // variabel jumlah halaman Ebook            
 };
 
 
 // Double Linked List //
 struct node {
-    data_Ebook data_Ebook;  // struct ebook
-    node *next = nullptr;      // alamat node setelahnya
-    node *prev = nullptr;      // alamat node sebelumnya
+    data_Ebook data_Ebook;          // struct ebook
+    node *next = nullptr;           // alamat node setelahnya
+    node *prev = nullptr;           // alamat node sebelumnya
 };
 
-node *Head = nullptr;              // alamat node awal
-node *Tail = nullptr;              // alamat node akhir
-node *alamat_sementara = nullptr;  // alamat node sementara
+node *Head = nullptr;               // alamat node awal
+node *Tail = nullptr;               // alamat node akhir
+node *alamat_sementara = nullptr;   // alamat node sementara
 
 
 // Variabel tambahan //
-int index;              // Variabel penanda index
-int jum_char;           // Variabel untuk menyimpan jumlah char suatu string
-string cek_data;        // Variabel untuk mengecek data
-string judul_Ebook;     // Variabel judul Ebook sementara
-string nama_penulis;    // Variabel nama penulis sementara
-string deskripsi_Ebook; // variabel deskripsi_Ebook sementara
-int harga;              // variabel harga sementara
-int halaman;            // variabel halaman sementara
+int index;                          // Variabel penanda index
+int jum_char;                       // Variabel untuk menyimpan jumlah char suatu string
+string cek_data;                    // Variabel untuk mengecek data
+string judul_Ebook;                 // Variabel judul Ebook sementara
+string nama_penulis;                // Variabel nama penulis sementara
+string deskripsi_Ebook;             // variabel deskripsi_Ebook sementara
+int harga;                          // variabel harga sementara
+int halaman;                        // variabel halaman sementara
 
 
 // Nama File Pengguna
@@ -137,15 +137,17 @@ fstream file;
 
 //  [1] Membersihkan layar output
     void cls(){
-        cout << "\n";
-        system("pause"); // Untuk menghentikan output sementara
-        system("cls");   // Untuk membersihkan output program sebelumnya
+        cout << endl;
+        system("pause");    // Untuk menghentikan output sementara
+        system("cls");      // Untuk membersihkan output program sebelumnya
     }
 //___________________________________________________________________________________________________________________________________________________//
 
 //  [2] Menghitung char atau huruf  yang ada dalam string
     int jml_char(string kalimat){
-        int jum_karakter = 0; // Variabel yang memuat jumlah char
+        
+        // Variabel yang memuat jumlah char
+        int jum_karakter = 0; 
 
         // Menghitung char dengan perulangan for
         for (int i = 0; kalimat[i]; i++)
@@ -161,10 +163,10 @@ fstream file;
         jum_char = jml_char(kalimat);
 
         // Digunakan perhitungan untuk meletakan kalimat ditengah garis
-        int garis = trunc((120 - jum_char) / 2);         //(trunc digunakan untuk pembulatan bilangan desimal)
-        cout << setfill('-') << setw(garis) << " "; //(setfill artinya Memasukan karakter di dalam kurung sebanyak setw(garis))
+        int garis = trunc((110 - jum_char) / 2);         //(trunc digunakan untuk pembulatan bilangan desimal)
+        cout << "+" << setfill('-') << setw(garis) << "+"; //(setfill artinya Memasukan karakter di dalam kurung sebanyak setw(garis))
         cout << kalimat;
-        cout << setfill('-') << left << setw(garis) << " " << endl;
+        cout << "+" << setfill('-') << left << setw(garis) << "+" << endl;
     }
 //___________________________________________________________________________________________________________________________________________________//
 
@@ -241,7 +243,7 @@ fstream file;
                 break;
             }
 
-            // Jika terdapat enter atau inputan kosong
+            // Jika terdapat angka
             cls();
             sambutan("\n |Error! Inputan Tidak Boleh Berisi Angka|\n");
             cls();
@@ -252,8 +254,9 @@ fstream file;
 //___________________________________________________________________________________________________________________________________________________//
 //  [7] Fungsi agar pengguna hanya bisa memasukan angka dan mengeluarkan output berupa string
     string harus_angka(string pernyataan){
-        string huruf; // variabel bertipe string perbandingan untuk angka
-        int angka;    // variabel angka
+        
+        string huruf;           // variabel bertipe string perbandingan untuk angka
+        int angka;              // variabel angka
 
         // Mengecek apakah input_string_khusus yang dimasukan pengguna adalah angka atau bukan
         while (true){
@@ -268,10 +271,10 @@ fstream file;
                 break;
             }
 
-            // Jika terdapat enter atau inputan kosong
-                cls();
-                sambutan("\n |  Error! Inputan Tidak Boleh Huruf  |\n");
-                cls();
+            // Jika terdapat huruf
+            cls();
+            sambutan("\n |  Error! Inputan Tidak Boleh Huruf  |\n");
+            cls();
         }
 
         // Mengembalikan nilai huruf untuk dimasukan di dalam data
@@ -281,8 +284,8 @@ fstream file;
 
 //  [8] Fungsi agar pengguna hanya bisa memasukan angka dan mengeluarkan output berupa integer
     int harus_angka_int(string pernyataan){
-        string huruf; // variabel bertipe string perbandingan untuk angka
-        int angka;    // variabel angka
+        string huruf;           // variabel bertipe string perbandingan untuk angka
+        int angka;              // variabel angka
 
         // Mengecek inputan integer
         huruf = harus_angka(pernyataan);
@@ -335,7 +338,7 @@ fstream file;
             // Mengecek apakah data char sesuai yang diinginkan
             jum_char = jml_char(variabel);
             if ((jum_char >= 11 && jum_char <= 13 && variabel[0] == *"0" && variabel[1] == *"8") || 
-                (jum_char >= 11 && jum_char <= 13 && variabel[0] == *"+" && variabel[1] == *"6" && variabel[2] == *"2" && variabel[3] == *"8")){
+                (jum_char >= 11 && jum_char <= 15 && variabel[0] == *"+" && variabel[1] == *"6" && variabel[2] == *"2" && variabel[3] == *"8")){
                 break;
             }
 
@@ -405,33 +408,46 @@ fstream file;
             judul_Ebook = input_string_khusus("Masukan judul Ebook         >> ", judul_Ebook);
             nama_penulis = bukan_angka       ("Masukan nama penulis        >> ", nama_penulis);
 
-            // Membandingkan judul dan nama
-            if (alamat_sementara != nullptr){
-                
-                // Jika ditemukan kesamaan judul Ebook dan nama penulis
-                if (alamat_sementara->data_Ebook.judul_Ebook == judul_Ebook && 
-                    alamat_sementara->data_Ebook.nama_penulis == nama_penulis){
-                    
-                    // Pemberitahuan data sudah ada
-                    cout << "\n+-------------------------------------------------------------------------------------------------------------------+" << endl;
-                    cout << "\n|  Judul Ebook & nama penulis sudah ada, pastikan Memasukan judul lengkap atau huruf tambahan untuk membedakan...   |\n";
-                    cout << "\n+-------------------------------------------------------------------------------------------------------------------+" << endl;
+            jum_char = jml_char(nama_penulis);
+            int jumchar = jml_char(judul_Ebook);
+
+            if (jum_char < 2 || jumchar <2){
+                    cout << "Nama penulis dan judul buku harus lebih dari satu huruf";
                     cls();
-                    cek_data = "ada";
-                    alamat_sementara = alamat_sementara->next;
                 }
 
-                // Jika tidak ditemukan kesamaan judul Ebook dan nama penulis
-                else{
-                    cek_data = "tidak";
-                    alamat_sementara = nullptr;
+            else {
+
+                // Membandingkan judul dan nama
+                if (alamat_sementara != nullptr){
+                    
+                    // Jika ditemukan kesamaan judul Ebook dan nama penulis
+                    if (alamat_sementara->data_Ebook.judul_Ebook == judul_Ebook && 
+                        alamat_sementara->data_Ebook.nama_penulis == nama_penulis){
+                        
+                        // Pemberitahuan data sudah ada
+                        cout << "\n+-------------------------------------------------------------------------------------------------------------------+" << endl;
+                        cout << "\n|  Judul Ebook & nama penulis sudah ada, pastikan Memasukan judul lengkap atau huruf tambahan untuk membedakan...   |\n";
+                        cout << "\n+-------------------------------------------------------------------------------------------------------------------+" << endl;
+                        cls();
+                        cek_data = "ada";
+                        alamat_sementara = alamat_sementara->next;
+                    }
+
+                    // Jika tidak ditemukan kesamaan judul Ebook dan nama penulis
+                    else{
+                        cek_data = "tidak";
+                        alamat_sementara = nullptr;
+                        return;
+                    }
+
+                    
+                }
+
+                // Jika data kosong
+                else {
                     return;
                 }
-            }
-
-            // Jika data kosong
-            else {
-                return;
             }
         }
     }
@@ -733,15 +749,18 @@ fstream file;
 
 //  [1] Fungsi untuk membaca data dari file CSV dan memasukkannya ke dalam double linked list
     void file_data_ebook_read(){
-        ifstream file("dataEbook_C1_Kelompok4.csv"); // Membuka file "data_ebook.csv" untuk dibaca
+        ifstream file("dataEbook_C1_Kelompok4.csv");    // Membuka file "data_ebook.csv" untuk dibaca
         if (!file.is_open()){
             cout << "File tidak dapat dibuka!" << endl; // Mencetak pesan kesalahan jika file tidak dapat dibuka
             return;
         }
 
         string line;
+
+
+        // Membuat objek data_Ebook untuk menyimpan data ebook
         while (getline(file, line)){
-            data_Ebook data; // Membuat objek data_Ebook untuk menyimpan data ebook
+            data_Ebook data;                            
             char judul[255];
             char penulis[255];
             char deskripsi[255];
@@ -751,16 +770,17 @@ fstream file;
             // Menguraikan data dari baris ke variabel yang sesuai
             sscanf(line.c_str(), "%[^,],%[^,],%d,%[^,],%d", judul, penulis, &jmlhalaman, deskripsi, &harga);
 
-            data.judul_Ebook = judul; // Mengisi atribut judul_Ebook
-            data.nama_penulis = penulis; // Mengisi atribut nama_penulis
-            data.jmlhalaman_Ebook = jmlhalaman; // Mengisi atribut jmlhalaman_Ebook
-            data.deskripsi_Ebook = deskripsi; // Mengisi atribut deskripsi_Ebook
-            data.harga = harga; // Mengisi atribut harga
+            data.judul_Ebook        = judul;        // Mengisi atribut judul_Ebook
+            data.nama_penulis       = penulis;      // Mengisi atribut nama_penulis
+            data.jmlhalaman_Ebook   = jmlhalaman;   // Mengisi atribut jmlhalaman_Ebook
+            data.deskripsi_Ebook    = deskripsi;    // Mengisi atribut deskripsi_Ebook
+            data.harga              = harga;        // Mengisi atribut harga
 
-            node *nodeBaru = new node; // Membuat node baru
-            nodeBaru->data_Ebook = data; // Menyimpan data ebook ke dalam node
+            node *nodeBaru          = new node;     // Membuat node baru
+            nodeBaru->data_Ebook    = data;         // Menyimpan data ebook ke dalam node
 
             if (Head == nullptr){
+
                 // Jika data kosong, node baru menjadi Head dan Tail
                 Head = nodeBaru;
                 Tail = nodeBaru;
@@ -782,27 +802,32 @@ fstream file;
 
 //  [2] Fungsi untuk menggaanti isi data di dalam file
     void file_data_ebook_change(){
-        ofstream file("dataEbook_C1_Kelompok4.csv"); // Membuka file "data_ebook.csv" untuk ditulis
+
+        // Membuka file "data_ebook.csv" untuk ditulis
+        ofstream file("dataEbook_C1_Kelompok4.csv");    
+
+
+        // Mencetak pesan kesalahan jika file tidak dapat dibuka
         if (!file.is_open()){
-            cout << "File tidak dapat dibuka!" << endl; // Mencetak pesan kesalahan jika file tidak dapat dibuka
+            cout << "File tidak dapat dibuka!" << endl; 
             return;
         }
 
-        node *alamat_sementara = Head;
+        // Simpan alamat sementara dri Head pada variabel lain
+        alamat_sementara = Head;
+
+        // Memasukan data selama data tidak kosong
         while (alamat_sementara != nullptr){
+
             data_Ebook data = alamat_sementara->data_Ebook;
             // Menulis data ebook ke dalam file CSV dalam format yang sesuai
-            file << data.judul_Ebook << "," << data.nama_penulis << "," << data.jmlhalaman_Ebook << ","
-                << data.deskripsi_Ebook << "," << data.harga << endl;
-            alamat_sementara = alamat_sementara->next;
-        }
+            file << data.judul_Ebook      << "," 
+                 << data.nama_penulis     << "," 
+                 << data.jmlhalaman_Ebook << ","
+                 << data.deskripsi_Ebook  << "," 
+                 << data.harga            << endl;
 
-        // Menambahkan penjelajahan dari belakang ke depan (tapi tidak melakukan apa-apa)
-        alamat_sementara = Tail;
-        while (alamat_sementara != nullptr){
-            data_Ebook data = alamat_sementara->data_Ebook;
-            // Lakukan apa yang perlu Anda lakukan dengan data di sini jika diperlukan
-            alamat_sementara = alamat_sementara->prev;
+            alamat_sementara = alamat_sementara->next;
         }
 
         file.close(); // Menutup file setelah selesai menulis
@@ -811,15 +836,18 @@ fstream file;
 
 //  [3] Menghitung panjang data e-book
     int lenght(){
-        int jumlah = 0;
-        alamat_sementara = Head;
+        int jumlah = 0;                                 // Inisialisasi variabel untuk menyimpan jumlah node
+        alamat_sementara = Head;                        // Mulai dari node pertama (Head) dalam linked list
+
+        // Loop untuk menelusuri linked list sampai mencapai akhir (nullptr)
         while (alamat_sementara != nullptr){
-            jumlah++;
-            alamat_sementara = alamat_sementara->next;
+            jumlah++;                                   // Tambahkan 1 ke jumlah untuk setiap node yang ditemukan
+            alamat_sementara = alamat_sementara->next;  // Pindah ke node berikutnya
         }
 
-        return jumlah;
+        return jumlah;                                  // Kembalikan jumlah node dalam linked list
     }
+
 //___________________________________________________________________________________________________________________________________________________//
 
 //  [4] Mencari data
@@ -849,6 +877,7 @@ fstream file;
             
         }
 
+        // Jika penulis tidak di temukan maka fungsi langsung berhenti
         if (!penulisDitemukan) {
             alamat_sementara = nullptr;
             cek_data = "tidak";
@@ -905,12 +934,14 @@ fstream file;
     string proses_search(){
 
         // Masukan judul Ebook dan nama penulis yang ingin dicari
-        judul_Ebook = input_string_khusus("Masukan judul Ebook yang ingin di cari  >> ", judul_Ebook);
+        judul_Ebook  = input_string_khusus("Masukan judul Ebook yang ingin di cari  >> ", judul_Ebook);
         nama_penulis = input_string_khusus("Masukan nama penulis yang ingin di cari >> ", nama_penulis);
-        
         cls();
+
+        // Melakukan Searching
         jumpSearch(nama_penulis, judul_Ebook);
 
+        // Jika data kosong, akan langsung return
         if (alamat_sementara == nullptr){
             cout << "+-------------------------------------+\n";
             cout << "|    Data yang di cari tidak ada...   |\n";
@@ -918,15 +949,17 @@ fstream file;
             return cek_data;
         }
 
+        // Jika data ada, memasukan ke variabel untuk di tampilkan
         if (cek_data == "ada"){
-            judul_Ebook = judul_Ebook;
-            nama_penulis = nama_penulis;
+            judul_Ebook     = judul_Ebook;
+            nama_penulis    = nama_penulis;
             deskripsi_Ebook = alamat_sementara->data_Ebook.deskripsi_Ebook;
-            halaman = alamat_sementara->data_Ebook.jmlhalaman_Ebook;
-            harga = alamat_sementara->data_Ebook.harga;
+            halaman         = alamat_sementara->data_Ebook.jmlhalaman_Ebook;
+            harga           = alamat_sementara->data_Ebook.harga;
             return cek_data;
         }
 
+        // Jika data tidak ada
         else if (cek_data == "tidak"){
             cout << "+-------------------------------------+\n";
             cout << "|    Data yang di cari tidak ada...   |\n";
@@ -961,14 +994,14 @@ fstream file;
 
         // Cek apakah linked list kosong
         if (Head == nullptr && Tail == nullptr) {
+
             // Jika kosong, atur Head dan Tail ke node baru
             Head = nodebaru;
             Tail = nodebaru;
         } 
         
         else {
-            // Jika tidak kosong, atur nodebaru sebagai node pertama (Head)
-            // dan perbarui referensi prev Head ke nodebaru
+            // Jika tidak kosong, atur nodebaru sebagai node pertama (Head) dan perbarui referensi prev Head ke nodebaru
             nodebaru->prev = nullptr;
             nodebaru->next = Head;
             Head->prev = nodebaru;
@@ -992,17 +1025,18 @@ fstream file;
         nodebaru->next = nullptr;    // Mengatur nodebaru sebagai node selanjutnya (tail), karena ini akan menjadi node terakhir.
 
         if (Head == nullptr && Tail == nullptr) {
+
             // Jika data kosong (linked list kosong), node baru menjadi Head dan Tail.
             Head = nodebaru;
             Tail = nodebaru;
         } else {
             // Jika data tidak kosong, menghubungkan nodebaru ke Tail dan menjadikan nodebaru sebagai Tail yang baru.
             (Tail)->next = nodebaru;  // Menghubungkan node lama (Tail) ke node baru.
-            Tail = nodebaru;         // Menjadikan nodebaru sebagai Tail yang baru.
+            Tail = nodebaru;          // Menjadikan nodebaru sebagai Tail yang baru.
         }
         
         sambutan("\n Data e-book Berhasil Dibuat\n");  // Memberikan pesan bahwa data e-book berhasil ditambahkan.
-        file_data_ebook_change();  // Kemungkinan melakukan operasi terkait penyimpanan data e-book ke file (tergantung pada logika program lainnya).
+        file_data_ebook_change();                      // Kemungkinan melakukan operasi terkait penyimpanan data e-book ke file (tergantung pada logika program lainnya).
     }
 //___________________________________________________________________________________________________________________________________________________//
 
@@ -1019,14 +1053,14 @@ fstream file;
             }
             // Jika ada berarti di tambah di atas akhir
             else {
-                node *nodeBaru      = newnode();           // Membuat node baru
+                node *nodeBaru      = newnode();        // Membuat node baru
                 nodeBaru->next      = Tail;             // Menambah alamat node baru next sama dengan Tail
                 nodeBaru->prev      = Tail->prev;       // Node prev dari nodebaru adalah node sebelum Tail
                 Tail->prev->next    = nodeBaru;         // Alamat node prev yang nextnya adalah node baru
                 Tail->prev          = nodeBaru;         // Tail prev adalah node baru
             }
             sambutan("\n Data e-book Berhasil Dibuat\n");  // Memberikan pesan bahwa data e-book berhasil ditambahkan.
-            file_data_ebook_change(); // Mengganti data di file
+            file_data_ebook_change();                      // Mengganti data di file
             return;
         }
 
@@ -1045,18 +1079,22 @@ fstream file;
 
         // Jika urutan posisi memenuhi kondisi
         else if (posisi < jumlah) {
+
             // Membuat node baru
-            node *nodeBaru = newnode(); // Membuat node baru
-            node *alamat_sementara = Head; // Pointer sementara untuk menjelajah linked list
+            node *nodeBaru = newnode();                 // Membuat node baru
+            alamat_sementara = Head;                    // Pointer sementara untuk menjelajah linked list
+
             for (int i = 1; i < posisi - 1; i++) {
                 if (alamat_sementara->next != nullptr) {
-                    alamat_sementara = alamat_sementara->next; // Menggeser pointer ke posisi yang diinginkan
+                    alamat_sementara = alamat_sementara->next; 
                 }
             }
+
+            // Memasukan node baru di posisi yang diinginkan
             nodeBaru->next = alamat_sementara->next;
             nodeBaru->prev = alamat_sementara;
             alamat_sementara->next->prev = nodeBaru;
-            alamat_sementara->next = nodeBaru; // Menyisipkan node baru di posisi yang diinginkan
+            alamat_sementara->next = nodeBaru; 
         }
 
         else {
@@ -1065,7 +1103,7 @@ fstream file;
         }
 
         sambutan("\n Data e-book Berhasil Dibuat\n");
-        file_data_ebook_change(); // Mengganti data di file
+        file_data_ebook_change();                   // Mengganti data di file
         return;
     }
 //___________________________________________________________________________________________________________________________________________________//
@@ -1117,8 +1155,8 @@ fstream file;
     void mengubah_ebook(){
 
         // Masukan judul Ebook dan nama penulis yang ingin dicari
-        judul_Ebook = input_string_khusus("Masukan judul Ebook yang ingin di cari  >> ", judul_Ebook);
-        nama_penulis = bukan_angka       ("Masukan nama penulis yang ingin di cari >> ", nama_penulis);
+        judul_Ebook  = input_string_khusus("Masukan judul Ebook yang ingin di cari  >> ", judul_Ebook);
+        nama_penulis = bukan_angka        ("Masukan nama penulis yang ingin di cari >> ", nama_penulis);
         cls();
 
         alamat_sementara = Head;
@@ -1130,7 +1168,16 @@ fstream file;
             // Jika ditemukan kesamaan judul Ebook dan nama penulis
             if (alamat_sementara->data_Ebook.judul_Ebook == judul_Ebook && alamat_sementara->data_Ebook.nama_penulis == nama_penulis){
 
-                nama_penulis = input_string_khusus("Masukan nama penulis baru        >> ", nama_penulis);
+                nama_penulis = bukan_angka("Masukan nama penulis baru        >> ", nama_penulis);
+
+                jum_char = jml_char(nama_penulis);
+                if (jum_char <2){
+                    garis();
+                    cout << "Nama penulis harus lebih dari satu huruf";
+                    garis();
+                    cls();
+                    return;
+                }
                 alamat_sementara->data_Ebook.judul_Ebook  = judul_Ebook;
                 alamat_sementara->data_Ebook.nama_penulis = nama_penulis;
                 halaman      = harus_angka_int("Masukan jumlah halaman baru      >> ");
@@ -1151,6 +1198,7 @@ fstream file;
 
             // Jika sudah sampai data akhir dan tidak di temukan
             else if (alamat_sementara->next == nullptr){
+
                 // Jika tidak ditemukan kesamaan judul Ebook dan nama penulis
                 cout << "+-------------------------------------+\n";
                 cout << "|    Data yang di cari tidak ada...   |\n";
@@ -1244,51 +1292,71 @@ fstream file;
 
 //  [16] Fungsi Sorting
     node* merge(node* left, node* right, bool ascending, string pilihan_sort) {
+        
+        // Membuat node dummy untuk menyederhanakan implementasi
         node dummy;
+        
+        // Pointer current digunakan untuk melacak posisi saat ini dalam linked list hasil penggabungan
         node* current = &dummy;
 
+        // Melakukan penggabungan selama kedua bagian linked list belum habis
         while (left && right) {
             bool condition;
+            
+            // Memeriksa kriteria pengurutan yang diberikan
             if (pilihan_sort == "harga") {
+                
+                // Mengatur kondisi berdasarkan apakah pengurutan adalah naik atau turun untuk harga
                 condition = (ascending && left->data_Ebook.harga <= right->data_Ebook.harga) ||
                             (!ascending && left->data_Ebook.harga >= right->data_Ebook.harga);
-            } else if (pilihan_sort == "halaman") {
-                condition = (ascending && left->data_Ebook.jmlhalaman_Ebook <= right->data_Ebook.jmlhalaman_Ebook) ||
+            } 
+            
+            else if (pilihan_sort == "halaman") {
+                // Mengatur kondisi berdasarkan apakah pengurutan adalah naik atau turun untuk jumlah halaman
+                condition = (ascending  && left->data_Ebook.jmlhalaman_Ebook <= right->data_Ebook.jmlhalaman_Ebook) ||
                             (!ascending && left->data_Ebook.jmlhalaman_Ebook >= right->data_Ebook.jmlhalaman_Ebook);
-            } else {
-                // Handle other cases if needed
             }
 
+            // Menyambungkan node terkecil/terbesar ke hasil penggabungan
             if (condition) {
                 current->next = left;
                 left->prev = current;
                 left = left->next;
-            } else {
+            } 
+            
+            else {
                 current->next = right;
                 right->prev = current;
                 right = right->next;
             }
+
             current = current->next;
         }
 
+        // Menyambungkan sisa bagian yang belum habis ke hasil penggabungan
         if (left) {
             current->next = left;
             left->prev = current;
-        } else {
+        } 
+        
+        else {
             current->next = right;
             right->prev = current;
         }
 
+        // Mengembalikan linked list hasil penggabungan
         return dummy.next;
     }
 
+    // Fungsi utama untuk mengurutkan linked list dengan menggunakan Merge Sort
     node* mergeSort(node* head, bool ascending, string pilihan_sort) {
         if (!head || !head->next) {
             return head;
         }
 
+        // Mencari titik tengah linked list menggunakan pendekatan "fast and slow"
         node* middle = head;
-        node* fast = head->next;
+        node* fast   = head->next;
 
         while (fast) {
             fast = fast->next;
@@ -1298,16 +1366,20 @@ fstream file;
             }
         }
 
-        node* left = head;
-        node* right = middle->next;
-        left->prev = nullptr;
+        // Memisahkan linked list menjadi dua bagian
+        node* left   = head;
+        node* right  = middle->next;
+        left->prev   = nullptr;
         middle->next = nullptr;
 
-        left = mergeSort(left, ascending, pilihan_sort);
+        // Rekursi untuk mengurutkan kedua bagian
+        left  = mergeSort(left,  ascending, pilihan_sort);
         right = mergeSort(right, ascending, pilihan_sort);
 
+        // Menggabungkan dua bagian yang telah diurutkan
         return merge(left, right, ascending, pilihan_sort);
     }
+
 
 
 
@@ -1477,6 +1549,7 @@ fstream file;
             data_kosong();
             return;
         }
+
         while (true){
             pilihan_lihat = menu(menu_lihat, "Menu Lihat (E-Book)", 6, pilihan_lihat);
 
@@ -1713,7 +1786,7 @@ fstream file;
                     break;
                 }
 
-                cout << "\nTotal pembelian : Rp" << harga << "\nPembayaran di lakukan via pulsa, pastikan pulsa anda mencukupi saat pembelian...\n\n";
+                cout << "\nTotal pembelian : Rp" << harga << "\nPembayaran di lakukan via pulsa atau dompet digital dari nomor anda, pastikan saldo anda mencukupi saat pembelian...\n\n";
                 cls();
                 garis();
                 cout << " Pembelian berhasil, silahkan cek gmail anda untuk mengakses e-book";
